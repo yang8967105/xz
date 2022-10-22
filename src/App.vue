@@ -8,7 +8,7 @@
         <div class="f24 color07C160 fw800"><span>Designer</span><span class="colorfff f20">ZHOU</span></div>
         <div class="flex flex-sc">
           <div v-for="(item,index) in headerList" :key="index" class="mrr40 pointer"><span class="colorfff fw600 f20">{{item}}</span></div>
-          <el-button round color="#0D1018" style="border:1px solid #fff">Let's Chat</el-button>
+          <el-button round color="#0D1018" style="border:1px solid #fff;font-size:1rem;font-weight:500;">Let's Chat</el-button>
         </div>
       </div>
   </header>

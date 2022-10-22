@@ -12,7 +12,7 @@ export default{
 <template>
   <div class="design-info" :key="item.id" v-for="(item,index) in list" :style="{backgroundColor:item.bgccolor}">
   <div class="top flex flex-bt">
-    <div class="top-left flex flex-bt">
+    <div class="top-left flex flex-bt flex-sc">
       <div class="t-left">
         <div :key="index1" v-for="(item1,index1) in list">
           <div  :class="[item.id==item1.id?'no-circle':'circle', 'mrb14']"></div>
@@ -29,7 +29,7 @@ export default{
     </div>
   </div>
     <div class="bottom flex flex-x flex-sc">
-      <div :key="item2.tit" v-for="(item2,index2) in item.cardList" class="mrr60 flex flex-y" >
+      <div :key="item2.tit" v-for="(item2,index2) in item.cardList" class="mrr60 flex flex-y card">
         <img class="bottom-img" :src="item2.img"/>
         <div class="flex flex-sc flex-bt br20 card-b">
           <div>
@@ -80,6 +80,9 @@ export default{
   overflow-x: scroll;
   overflow-y: hidden;
   
+}
+.card:hover{
+  transform: translateY(-2.5rem);
 }
 .card-b{
   padding: 1.5rem;

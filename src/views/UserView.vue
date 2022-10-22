@@ -2,9 +2,9 @@
 import { ElButton,ElIcon } from 'element-plus'
 import CompanyView from './CompanyView.vue';
 import DesignInfo from './DesignInfo.vue';
-
+import ThanksView from './ThanksView.vue'
 export default{
-  components: { ElButton,ElIcon,CompanyView,DesignInfo },
+  components: { ElButton,ElIcon,CompanyView,DesignInfo,ThanksView },
   setup(){
 
   },
@@ -48,7 +48,7 @@ export default{
       <div>
         <div class="flex flex-sc ">
           <span class="colorfff fw800 mrr35 f48">HELLO!</span>
-          <el-button type="primary" round color="#3477FF" style="width:7.5rem;height:3.125rem">UX/UI</el-button>
+          <el-button type="primary" round color="#3477FF" style="width:7.5rem;height:3.125rem;">UX/UI</el-button>
         </div>
         <div><span class="colorfff f96 fw800">我是周莹</span></div>
         <div class="mwth"><span class="color80 f24 fw500 ">I have more than 4 years of experience in UX/UI design</span></div>
@@ -69,6 +69,7 @@ export default{
   </main>
     <CompanyView />
     <DesignInfo :list="designList"/>
+    <ThanksView />
 </template>
 <style scoped>
 main {
