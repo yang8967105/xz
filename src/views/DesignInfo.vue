@@ -1,0 +1,105 @@
+<script>
+
+export default{
+ props: ['list'],
+  created(){
+  },
+  data(){
+  }
+}
+</script>
+
+<template>
+  <div class="design-info" :key="item.id" v-for="(item,index) in list" :style="{backgroundColor:item.bgccolor}">
+  <div class="top flex flex-bt">
+    <div class="top-left flex flex-bt">
+      <div class="t-left">
+        <div :key="index1" v-for="(item1,index1) in list">
+          <div  :class="[item.id==item1.id?'no-circle':'circle', 'mrb14']"></div>
+        </div>
+      </div>
+      <div class="t-right">
+        <div class="f48 fw800 colorfff lh58">{{item.tit}}</div>
+        <div class="f48 fw800 color50">{{item.English}}</div>
+      </div>
+    </div>
+    <div class="top-right">
+      <span class="f48 fw800 colorfff">3</span>
+      <span class="f48 fw800 color50">/12</span>
+    </div>
+  </div>
+    <div class="bottom flex flex-x flex-sc">
+      <div :key="item2.tit" v-for="(item2,index2) in item.cardList" class="mrr60 flex flex-y" >
+        <img class="bottom-img" :src="item2.img"/>
+        <div class="flex flex-sc flex-bt br20 card-b">
+          <div>
+            <div class="flex flex-x flex-sc">
+              <span class="f20 fw500 color0D1018">{{item2.tit}}</span>
+              <div :class="['mrl10',item2.publish?'bgc07C160':'','flex','flex-sc','flex-mc','w40','h24']"><span class="colorfff f12 fw400">上线</span></div>
+              <div :class="['mrl10',item2.status?'bgcFFA900':'','flex','flex-sc','flex-mc','w40','h24']"><span class="colorfff f12 fw400">改版</span></div>
+              <div :class="['mrl10',item2.status?'bgc3A7BFF':'','flex','flex-sc','flex-mc','w40','h24']"><span class="colorfff f12 fw400">原创</span></div>
+            </div>
+            <div class="f14 fw400 color909399">{{item2.des}}</div>
+          </div>
+          <div>-></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<style scoped>
+.design-info{
+  padding: 7.4375rem 15rem 0 15rem;
+}
+.color50{
+  color: rgba(250,250,250,0.5);
+}
+.circle{
+  width:.75rem;
+  height: .75rem;
+  background-color: rgba(250,250,250,0.4);
+  border-radius: 50%;
+}
+.no-circle{
+  width: .75rem;
+  height: 2rem;
+  background-color: #fff;
+  border-radius: 2.4375rem;
+}
+.t-left{
+  margin-right: 6.75rem;
+}
+.bottom{
+  width: 90rem;
+  height: 41.1875rem;
+  background-color: #f4f4f4;
+  border-top-left-radius: 7.5rem;
+  border-top-right-radius: 7.5rem;
+  margin-top: 3.75rem;
+  padding: 10rem 0 7.5rem 7.5rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  
+}
+.card-b{
+  padding: 1.5rem;
+  background-color: #fff;
+}
+.bottom-img{
+  width: 22.5rem;
+  height: 17.3125rem;
+}
+.bgcFFA900{
+background-color: #FFA900;
+border-radius: .25rem;
+}
+.bgc07C160{
+  background-color: #07C160;
+border-radius: .25rem;
+}
+.bgc3A7BFF{
+  background-color: #3A7BFF;
+border-radius: .25rem;
+
+}
+</style>
