@@ -41,7 +41,7 @@ export default{
             </div>
             <div class="f14 fw400 color909399">{{item2.des}}</div>
           </div>
-          <div>-></div>
+          <div class="f20 color909399">-&gt;</div>
         </div>
       </div>
     </div>
