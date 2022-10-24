@@ -5,12 +5,17 @@ export default{
   created(){
   },
   data(){
+  },
+  methods:{
+    show(){
+      console.log(1111)
+    }
   }
 }
 </script>
 
 <template>
-  <div class="design-info" :key="item.id" v-for="(item,index) in list" :style="{backgroundColor:item.bgccolor}">
+  <div class="design-info" :key="item.id" v-for="(item,index) in list" :style="{backgroundColor:item.bgccolor}" :id="item.id">
   <div class="top flex flex-bt">
     <div class="top-left flex flex-bt flex-sc">
       <div class="t-left">
@@ -29,8 +34,8 @@ export default{
     </div>
   </div>
     <div class="bottom flex flex-x flex-sc">
-      <div :key="item2.tit" v-for="(item2,index2) in item.cardList" class="mrr60 flex flex-y card">
-        <img class="bottom-img" :src="require('@/assets/'+item2.img)"/>
+      <div :key="item2.tit" v-for="(item2,index2) in item.cardList" class="mrr60 flex flex-y card" >
+        <div class="bottom-img-box br20"><img class="bottom-img" :src="require('@/assets/'+item2.img)" :id="item.id+item2.img"/></div>
         <div class="flex flex-sc flex-bt br20 card-b">
           <div>
             <div class="flex flex-x flex-sc">
@@ -41,13 +46,13 @@ export default{
             </div>
             <div class="f14 fw400 color909399">{{item2.des}}</div>
           </div>
-          <div class="f20 color909399">-&gt;</div>
+          <div class="go-right"><img style="width:.8125rem;height:.5rem" src="https://imagesize.hknet-inc.com/sp/files/7d16f98f-e524-4983-8234-7497dffdf349.png"/></div>
         </div>
       </div>
     </div>
   </div>
 </template>
-<style scoped>
+<style scoped lang='less'>
 .design-info{
   padding: 7.4375rem 15rem 0 15rem;
 }
@@ -81,16 +86,33 @@ export default{
   overflow-y: hidden;
   
 }
+.go-right{
+  visibility: hidden;
+}
 .card:hover{
   transform: translateY(-2.5rem);
+  transition: all .2s;
+  .bottom-img{
+    transform: scale(1.3);
+    transition: all .2s;
+  }
+  .go-right{
+    visibility:visible
+  }
+  
 }
 .card-b{
   padding: 1.5rem;
   background-color: #fff;
 }
-.bottom-img{
+.bottom-img-box{
   width: 22.5rem;
   height: 17.3125rem;
+  overflow: hidden;
+  .bottom-img{
+    width: 22.5rem;
+    height: 17.3125rem;
+  }
 }
 .bgcFFA900{
 background-color: #FFA900;

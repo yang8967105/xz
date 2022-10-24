@@ -7,7 +7,7 @@
       <div class="flex-1 flex flex-bt flex-sc pdlr360 border-b">
         <div class="f24 color07C160 fw800"><span>Designer</span><span class="colorfff f20">ZHOU</span></div>
         <div class="flex flex-sc">
-          <div v-for="(item,index) in headerList" :key="index" class="mrr40 pointer"><span class="colorfff fw600 f20">{{item}}</span></div>
+          <div v-for="(item,index) in headerList" :key="index" class="mrr40 pointer hg colorfff" @click="()=>jump(item)"><span class="fw600 f20">{{item}}</span></div>
           <el-button round color="#0D1018" style="border:1px solid #fff;font-size:1rem;font-weight:500;">Let's Chat</el-button>
         </div>
       </div>
@@ -40,6 +40,12 @@ export default {
       headerList:['Home','Phone','Web','Practice','About']
     }
   },
+  methods:{
+    jump(path){
+      document.getElementById(path).scrollIntoView(true);
+      return false;
+    }
+  }
 }
 </script>
 
@@ -51,18 +57,21 @@ export default {
   // text-align: center;
   color: #2c3e50;
   header {
-  /* line-height: 1.5; */
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  width: 100%;;
-}
-.pdlr360{
-  padding:0 22.5rem;
-}
-.border-b{
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-}
+    /* line-height: 1.5; */
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    width: 100%;;
+  }
+  .pdlr360{
+    padding:0 22.5rem;
+  }
+  .border-b{
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+  }
+  .hg:hover{
+    color: #07C160;
+  }
 }
 
 nav {

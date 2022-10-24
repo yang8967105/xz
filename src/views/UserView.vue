@@ -12,7 +12,7 @@ export default{
     return {
       designList:[
         {
-          id:1,bgccolor:'#0ABF5B',tit:'移动端设计',English:'Phone Design',
+          id:'Phone',bgccolor:'#0ABF5B',tit:'移动端设计',English:'Phone Design',
           cardList:[
             {tit:'企鹅吉市',des:'领券平台小程序',img:'Frame773422.png',publish:true,status:false},
             {tit:'云管家app',des:'医疗健康小程序',img:'Frame773422(1).png',publish:true,status:true},
@@ -21,7 +21,7 @@ export default{
           ]
         },
         {
-          id:2,bgccolor:'#3A7BFF',tit:'网页端设计',English:'Web Design',
+          id:'Web',bgccolor:'#3A7BFF',tit:'网页端设计',English:'Web Design',
           cardList:[
             {tit:'商有云店',des:'餐饮运营一站式服务',img:'Frame773422-0.png',publish:true,status:true},
             {tit:'医药流向系统',des:'药品流向查询系统',img:'Frame773422-1.png',publish:false,status:true},
@@ -29,7 +29,7 @@ export default{
           ]
           },
         {
-          id:3,bgccolor:'#FFA900',tit:'个人练习',English:'Practice',
+          id:'Practice',bgccolor:'#FFA900',tit:'个人练习',English:'Practice',
           cardList:[
             {tit:'3D设计',des:'头像、个人形象设计',img:'Frame773422-0.png',publish:false,status:false,myself:true},
             {tit:'动效设计',des:'MG动画',img:'Frame773422-1.png',publish:false,status:false,myself:true},
@@ -44,7 +44,7 @@ export default{
 
 <template>
   <main>
-    <div class="flex flex-sc flex-mc">
+    <div class="flex flex-sc flex-mc" id="Home">
       <div>
         <div class="flex flex-sc ">
           <span class="colorfff fw800 mrr35 f48">HELLO!</span>
@@ -67,9 +67,9 @@ export default{
       </div>
     </div>
   </main>
-    <CompanyView />
+    <CompanyView  />
     <DesignInfo :list="designList"/>
-    <ThanksView />
+    <ThanksView id="About"/>
 </template>
 <style scoped>
 main {
