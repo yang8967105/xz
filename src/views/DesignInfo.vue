@@ -30,7 +30,7 @@ export default{
   </div>
     <div class="bottom flex flex-x flex-sc">
       <div :key="item2.tit" v-for="(item2,index2) in item.cardList" class="mrr60 flex flex-y card">
-        <img class="bottom-img" :src="item2.img"/>
+        <img class="bottom-img" :src="require('@/assets/'+item2.img)"/>
         <div class="flex flex-sc flex-bt br20 card-b">
           <div>
             <div class="flex flex-x flex-sc">
