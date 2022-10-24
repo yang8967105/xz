@@ -22,7 +22,7 @@ export default{
 .thanks {
   width: 120rem;
   height: 60rem;
-  background:url("../../public/Frame773545.png");
+  background:url("../assets/Frame773545.png");
   background-size:120rem 60rem;
   background-repeat:no-repeat;
 }

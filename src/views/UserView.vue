@@ -57,13 +57,13 @@ export default{
           <el-icon color="#07C160" size="10"><BottomRight /></el-icon>
         </div>
         <div class="flex flex-sc">
-          <img src="../../public/Group6.png" class="pointer w58 h58 mrr20"/>
-          <img src="../../public/Group7.png" class="pointer w58 h58 mrr20"/>
-          <img src="../../public/Group8.png" class="pointer w58 h58 mrr20"/>
+          <img src="../assets/Group6.png" class="pointer w58 h58 mrr20"/>
+          <img src="../assets/Group7.png" class="pointer w58 h58 mrr20"/>
+          <img src="../assets/Group8.png" class="pointer w58 h58 mrr20"/>
         </div>
       </div>
       <div>
-        <img src="../../public/untitled11.png" class="pic"/>
+        <img src="../assets/untitled11.png" class="pic"/>
       </div>
     </div>
   </main>
@@ -75,8 +75,8 @@ export default{
 main {
   width: 120rem;
   /* height: 67.5rem; */
-  /* background-image: url("../../public/Frame1.png"); */
-  background:url("../../public/Frame1.png");
+  /* background-image: url("../assets/Frame1.png"); */
+  background:url("../assets/Frame1.png");
   background-size:120rem 67.5rem;
   background-repeat:no-repeat;
   padding-left:22.5rem;
