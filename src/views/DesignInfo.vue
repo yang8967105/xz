@@ -37,7 +37,7 @@ export default{
       </div>
       <div class="t-right">
         <div class="f48 fw800 colorfff lh58">{{item.tit}}</div>
-        <div class="f48 fw800 color50">{{item.English}}</div>
+        <div class="f32 fw800 color50 mtd">{{item.English}}</div>
       </div>
     </div>
     <div class="top-right">
@@ -46,7 +46,7 @@ export default{
     </div>
   </div>
     <div class="bottom flex flex-x flex-sc">
-      <div :key="item2.tit" v-for="(item2,index2) in item.cardList" class="mrr60 flex flex-y card" >
+      <div :key="item2.tit" v-for="(item2,index2) in item.cardList" class="mrr30 flex flex-y card" >
         <!-- <div class="bottom-img-box br20"><img class="bottom-img" :src="require('@/assets/'+item2.img)" :id="item.id+item2.img"/></div> -->
         <div class="bottom-img-box br20" :style="setBackground(item2.img)" @mouseover="cgBackground(item2)" :id="item2.img" @mouseleave="restore(item2)"></div>
         <div class="flex flex-sc flex-bt br20 card-b">
@@ -67,7 +67,8 @@ export default{
 </template>
 <style scoped lang='less'>
 .design-info{
-  padding: 7.4375rem 15rem 0 15rem;
+  // padding: 7.4375rem 15rem 0 15rem;
+  padding: 6.875rem 17.5rem 0 17.5rem;
 }
 .color50{
   color: rgba(250,250,250,0.5);
@@ -88,13 +89,16 @@ export default{
   margin-right: 6.75rem;
 }
 .bottom{
-  width: 90rem;
-  height: 41.1875rem;
+  // width: 90rem;
+  // height: 41.1875rem;
+  width: 85rem;
+  height: 35.75rem;
   background-color: #f4f4f4;
-  border-top-left-radius: 7.5rem;
-  border-top-right-radius: 7.5rem;
+  border-top-left-radius: 3.75rem;
+  border-top-right-radius: 3.75rem;
   margin-top: 3.75rem;
-  padding: 10rem 0 7.5rem 7.5rem;
+  // padding: 10rem 0 7.5rem 7.5rem;
+  padding: 5rem;
   overflow-x: scroll;
   overflow-y: hidden;
   
@@ -119,12 +123,14 @@ export default{
   background-color: #fff;
 }
 .bottom-img-box{
-  width: 22.5rem;
-  height: 17.3125rem;
+  width: 23.75rem;
+  height: 20rem;
+  // width: 22.5rem;
+  // height: 17.3125rem;
   overflow: hidden;
   .bottom-img{
-    width: 22.5rem;
-    height: 17.3125rem;
+    width: 23.75rem;
+    height: 20rem;
   }
 }
 .bgcFFA900{

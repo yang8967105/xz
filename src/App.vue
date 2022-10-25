@@ -3,11 +3,11 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav> -->
-  <header class="flex bgc0D1018 h104 hd">
-      <div class="flex-1 flex flex-bt flex-sc pdlr360 border-b">
+  <header class="flex bgc0D1018 h72 hd">
+      <div class="flex-1 flex flex-bt flex-sc pdlr360">
         <div class="f24 color07C160 fw800"><span>Designer</span><span class="colorfff f20">ZHOU</span></div>
         <div class="flex flex-sc">
-          <div v-for="(item,index) in headerList" :key="index" class="mrr40 pointer hg colorfff" @click="()=>jump(item)"><span class="fw600 f20">{{item}}</span></div>
+          <div v-for="(item,index) in headerList" :key="index" class="mrr40 pointer hg colorfff mtd" @click="()=>jump(item)"><span class="fw600 f16">{{item}}</span></div>
           <el-button round color="#0D1018" style="border:1px solid #fff;font-size:1rem;font-weight:500;">Let's Chat</el-button>
         </div>
       </div>

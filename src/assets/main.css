@@ -146,6 +146,9 @@
 .mrr60{
   margin-right: 3.75rem;
 }
+.mrr30{
+  margin-right: 1.875rem;
+}
 .br20{
   border-radius: 1.25rem;
 }
@@ -163,4 +166,16 @@
 }
 .h24{
   height: 1.5rem;
+}
+.h72{
+  height: 4.5rem;
+}
+.f16{
+  font-size: 1rem;
+}
+.mtd{
+  font-family: 'mtd';
+}
+.f32{
+  font-size: 2rem;
 }

@@ -14,10 +14,10 @@ export default{
         {
           id:'Phone',bgccolor:'#0ABF5B',tit:'移动端设计',English:'Phone Design',
           cardList:[
-            {tit:'企鹅吉市',des:'领券平台小程序',img:'Frame773422.png',publish:true,status:false},
+            {tit:'企鹅吉市',des:'领券平台小程序',img:'Frame773572.png',publish:true,status:false},
             {tit:'云管家app',des:'医疗健康小程序',img:'Frame7734221.png',publish:true,status:true},
             {tit:'药问我健康平台',des:'医疗健康小程序',img:'Frame7734222.png',publish:true,status:false},
-            {tit:'药问我健康平台',des:'医疗健康小程序',img:'Frame7734222.png',publish:true,status:false},
+            // {tit:'药问我健康平台',des:'医疗健康小程序',img:'Frame7734222.png',publish:true,status:false},
           ]
         },
         {
@@ -44,14 +44,14 @@ export default{
 
 <template>
   <main>
-    <div class="flex flex-sc flex-mc" id="Home">
+    <div class="flex flex-sc flex-bt" id="Home">
       <div>
         <div class="flex flex-sc ">
           <span class="colorfff fw800 mrr35 f48">HELLO!</span>
-          <el-button type="primary" round color="#3477FF" style="width:7.5rem;height:3.125rem;">UX/UI</el-button>
+          <el-button type="primary" round color="#3477FF" style="width:7.5rem;height:3.125rem;font-size:1.5rem;font-family:'mt'">UX/UI</el-button>
         </div>
         <div><span class="colorfff f96 fw800">我是周莹</span></div>
-        <div class="mwth"><span class="color80 f24 fw500 ">I have more than 4 years of experience in UX/UI design</span></div>
+        <div class="mwth"><span class="color80 f24 fw500 mtd">I have more than 4 years of experience in UX/UI design</span></div>
         <div class="flex flex-sc mrb164">
           <span class="color07C160 f24 fw600 mrr17">Show More</span>
           <el-icon color="#07C160" size="10"><BottomRight /></el-icon>
@@ -74,17 +74,26 @@ export default{
 <style scoped>
 main {
   width: 120rem;
-  /* height: 67.5rem; */
+  /* height: 60rem; */
   /* background-image: url("../assets/Frame1.png"); */
-  background:url("../assets/Frame1.png");
-  background-size:120rem 67.5rem;
+  /* background:url("../assets/Frame1.png");
+  background-size:120rem 60rem; */
+  background:url("../assets/Frame773570.png");
+  background-size: 120rem 60rem;
   background-repeat:no-repeat;
-  padding-left:22.5rem;
+  padding-left: 22.5rem;
+  padding-right: 12.5rem;
+  padding-top: 5.875rem;
+  /* padding-left:22.5rem; */
+  /* padding-top: 10.375rem; */
+  /* padding-right: 12.5rem; */
   /* padding-right: 6.0875rem; */
 }
 .pic{
-  width: 64.9375rem;
-  height: 64.9375rem;
+  /* width: 64.9375rem;
+  height: 64.9375rem; */
+  width: 52.5rem;
+  height: 49.625rem;
 }
 .color80{
   color:rgba(255,255,255,0.8)
