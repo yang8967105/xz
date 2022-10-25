@@ -7,9 +7,21 @@ export default{
   data(){
   },
   methods:{
-    show(){
-      console.log(1111)
+    setBackground(img){
+      return {
+        background:'url('+require('@/assets/'+img)+')',
+        backgroundSize:'100%'
+      }
+    },
+    cgBackground(obj){
+      document.getElementById(obj.img).style.background='url('+require('@/assets/duck.gif')+')';
+      document.getElementById(obj.img).style.backgroundSize='100%';
+    },
+    restore(obj){
+      document.getElementById(obj.img).style.background='url('+require('@/assets/'+obj.img)+')';
+      document.getElementById(obj.img).style.backgroundSize='100%';
     }
+
   }
 }
 </script>
@@ -35,7 +47,8 @@ export default{
   </div>
     <div class="bottom flex flex-x flex-sc">
       <div :key="item2.tit" v-for="(item2,index2) in item.cardList" class="mrr60 flex flex-y card" >
-        <div class="bottom-img-box br20"><img class="bottom-img" :src="require('@/assets/'+item2.img)" :id="item.id+item2.img"/></div>
+        <!-- <div class="bottom-img-box br20"><img class="bottom-img" :src="require('@/assets/'+item2.img)" :id="item.id+item2.img"/></div> -->
+        <div class="bottom-img-box br20" :style="setBackground(item2.img)" @mouseover="cgBackground(item2)" :id="item2.img" @mouseleave="restore(item2)"></div>
         <div class="flex flex-sc flex-bt br20 card-b">
           <div>
             <div class="flex flex-x flex-sc">

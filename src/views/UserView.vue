@@ -15,9 +15,9 @@ export default{
           id:'Phone',bgccolor:'#0ABF5B',tit:'移动端设计',English:'Phone Design',
           cardList:[
             {tit:'企鹅吉市',des:'领券平台小程序',img:'Frame773422.png',publish:true,status:false},
-            {tit:'云管家app',des:'医疗健康小程序',img:'Frame773422(1).png',publish:true,status:true},
-            {tit:'药问我健康平台',des:'医疗健康小程序',img:'Frame773422(2).png',publish:true,status:false},
-            {tit:'药问我健康平台',des:'医疗健康小程序',img:'Frame773422(2).png',publish:true,status:false},
+            {tit:'云管家app',des:'医疗健康小程序',img:'Frame7734221.png',publish:true,status:true},
+            {tit:'药问我健康平台',des:'医疗健康小程序',img:'Frame7734222.png',publish:true,status:false},
+            {tit:'药问我健康平台',des:'医疗健康小程序',img:'Frame7734222.png',publish:true,status:false},
           ]
         },
         {
