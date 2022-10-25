@@ -50,6 +50,11 @@ export default {
 </script>
 
 <style lang="less">
+//解决导航栏覆盖锚点元素 start
+html{
+  scroll-padding-top: 6.4375rem
+}
+//end
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -61,7 +66,7 @@ export default {
     position: sticky;
     top: 0;
     z-index: 2;
-    width: 100%;;
+    width: 100%;
   }
   .pdlr360{
     padding:0 22.5rem;
