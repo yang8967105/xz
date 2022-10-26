@@ -22,9 +22,9 @@ export default{
 <template>
   <div class="company flex flex-ar flex-sc">
     <div :key="item.name" v-for="(item,index) in list">
-      <div class="img">
+      <!-- <div class="img">
          <img v-if="item.img" src="../assets/Frame.png" class="img"/>
-      </div>
+      </div> -->
       <div class="mrt24 mrb16 colorfff fw500 f20">{{item.date}}</div>
       <div class="colorfff f24 fw400">{{item.name}}</div>
     </div>

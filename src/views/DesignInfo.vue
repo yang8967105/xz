@@ -1,5 +1,5 @@
 <script>
-
+import phonegif from "../assets/phone-qejs.gif"
 export default{
  props: ['list'],
   created(){
@@ -14,7 +14,8 @@ export default{
       }
     },
     cgBackground(obj){
-      document.getElementById(obj.img).style.background='url('+require('@/assets/duck.gif')+')';
+      const url=phonegif+'?'+Math.random()
+      document.getElementById(obj.img).style.background='url('+url+')';
       document.getElementById(obj.img).style.backgroundSize='100%';
     },
     restore(obj){
@@ -41,14 +42,14 @@ export default{
       </div>
     </div>
     <div class="top-right">
-      <span class="f48 fw800 colorfff">3</span>
-      <span class="f48 fw800 color50">/12</span>
+      <span class="f48 fw800 colorfff">{{'0'+(index+1)}}</span>
+      <!-- <span class="f48 fw800 color50">/12</span> -->
     </div>
   </div>
     <div class="bottom flex flex-x flex-sc">
-      <div :key="item2.tit" v-for="(item2,index2) in item.cardList" class="mrr30 flex flex-y card" >
+      <div :key="item2.tit" v-for="(item2,index2) in item.cardList" class="mrr30 flex flex-y card" @mouseover="cgBackground(item2)"  @mouseleave="restore(item2)">
         <!-- <div class="bottom-img-box br20"><img class="bottom-img" :src="require('@/assets/'+item2.img)" :id="item.id+item2.img"/></div> -->
-        <div class="bottom-img-box br20" :style="setBackground(item2.img)" @mouseover="cgBackground(item2)" :id="item2.img" @mouseleave="restore(item2)"></div>
+        <div class="bottom-img-box br20" :style="setBackground(item2.img)" :id="item2.img"></div>
         <div class="flex flex-sc flex-bt br20 card-b">
           <div>
             <div class="flex flex-x flex-sc">
