@@ -1,10 +1,48 @@
 <script>
 import phonegif from "../assets/phone-qejs.gif"
 export default{
- props: ['list'],
   created(){
+    let designList=[
+      {
+        id:'Phone',bgccolor:'#0ABF5B',tit:'移动端设计',English:'Phone Design',arrowStart:0,
+        cardList:[
+          {tit:'企鹅吉市',des:'领券平台小程序',img:'Frame773572.png',publish:true,status:false},
+          {tit:'云管家app',des:'医疗健康小程序',img:'Frame7734221.png',publish:true,status:true},
+          {tit:'药问我健康平台',des:'医疗健康小程序',img:'Frame7734222.png',publish:true,status:false},
+          {tit:'云管家app',des:'医疗健康小程序',img:'Frame7734221.png',publish:true,status:true},
+          {tit:'药问我健康平台',des:'医疗健康小程序',img:'Frame7734222.png',publish:true,status:false},
+
+        ]
+      },
+      {
+        id:'Web',bgccolor:'#3A7BFF',tit:'网页端设计',English:'Web Design',arrowStart:0,
+        cardList:[
+          {tit:'商有云店',des:'餐饮运营一站式服务',img:'Frame773422-0.png',publish:true,status:true},
+          {tit:'医药流向系统',des:'药品流向查询系统',img:'Frame773422-1.png',publish:false,status:true},
+          {tit:'供应链中台',des:'医药行业进销存管理软件',img:'Frame773422-2.png',publish:true,status:true},
+          {tit:'供应链中台',des:'医药行业进销存管理软件',img:'Frame773422-2.png',publish:true,status:true},
+        ]
+        },
+      {
+        id:'Practice',bgccolor:'#FFA900',tit:'个人练习',English:'Practice',arrowStart:0,
+        cardList:[
+          {tit:'3D设计',des:'头像、个人形象设计',img:'Frame773422-0.png',publish:false,status:false,myself:true},
+          {tit:'动效设计',des:'MG动画',img:'Frame773422-1.png',publish:false,status:false,myself:true},
+          {tit:'概念设计',des:'数据大屏、营销活动',img:'Frame773422-2.png',publish:false,status:false,myself:true},
+        ]
+      },
+    ]
+    designList=designList.map(item=>{
+      let arr=Object.keys(item.cardList) || []
+      return {...item,showIndexs:arr}
+    })
+    this.list=designList
+    console.log(this.list)
   },
   data(){
+    return {
+      list:[]
+    }
   },
   methods:{
     setBackground(img){
@@ -22,8 +60,56 @@ export default{
     restore(obj){
       document.getElementById(obj.img).style.background='url('+require('@/assets/'+obj.img)+')';
       document.getElementById(obj.img).style.backgroundSize='100%';
-    }
+    },
+    switchPic(index,bearing){
+      // let id=this.list[index].id;
+      // let arrowStart=this.list[index].arrowStart
+      // let display=''
+      // let num=0;
+      // if(bearing=='l'){
+      //   display='none'
+      //   num=1
+      // }else{
+      //   display='block'
+      //   num=-1
+      // }
+      // console.log(arrowStart,'new')
 
+      // document.getElementById(id).children[1].children[1].children[arrowStart].style.display=display;
+      // document.getElementById(id).children[1].children[1].children[arrowStart].style.transition="all .2s";
+      // const newList=JSON.parse(JSON.stringify(this.list))
+      // newList[index].arrowStart+=num;
+      // console.log(newList[index].arrowStart,'new')
+      // this.list=newList;
+      const newList=JSON.parse(JSON.stringify(this.list))
+      console.log(newList,'old')
+      let endnum=''
+      if(bearing=='l'){
+        // if(newList[index].showIndexs.length>3){
+        //   newList[index].showIndexs.splice(0,1)
+        // }
+        if(newList[index].showIndexs.length<newList[index].cardList.length){
+          endnum=newList[index].showIndexs[0]
+          newList[index].showIndexs.unshift(endnum-1+'')
+        }
+      }else{
+        endnum=newList[index].showIndexs[0]
+        console.log(endnum,'endum')
+        // if(endnum==0){
+        //     newList[index].showIndexs.splice(0,1)
+        // }else{
+        //   if(endnum-1>=0){
+        //     newList[index].showIndexs.unshift(endnum-1+'')
+        //   }
+          
+        // }
+         if(newList[index].showIndexs.length>=4){
+          newList[index].showIndexs.splice(0,1)
+        }
+      }
+      console.log(newList,'new')
+      this.list=newList
+    }
   }
 }
 </script>
@@ -47,10 +133,19 @@ export default{
       <!-- <span class="f48 fw800 color50">/12</span> -->
     </div>
   </div>
-    <div class="bottom flex flex-ar flex-sc">
-      <div class="arrow arrow-left pointer"></div>
+    <div class="bottom flex flex-sc">
+      <div class="arrow-box arrow-l">
+        <img class="arrow pointer" src="../assets/arrow-l.png" @click="switchPic(index,'l')" v-show="item.showIndexs && item.showIndexs[0]>0 && item.cardList && item.cardList.length>3"/>
+      </div>
       <div class="flex flex-sc card-box">
-        <div :key="item2.tit" v-for="(item2,index2) in item.cardList" :class="['mrr30','flex', 'flex-y ','card']" @mouseover="cgBackground(item2)"  @mouseleave="restore(item2)">
+        <div 
+          :key="item2.tit" 
+          v-for="(item2,index2) in item.cardList" 
+          :class="['mrr30','flex', 'flex-y ','card']" 
+          @mouseover="cgBackground(item2)" 
+          @mouseleave="restore(item2)"
+          v-show="item && item.showIndexs && item.showIndexs.includes(index2+'')"
+        >
           <!-- <div class="bottom-img-box br20"><img class="bottom-img" :src="require('@/assets/'+item2.img)" :id="item.id+item2.img"/></div> -->
           <div class="bottom-img-box br20" :style="setBackground(item2.img)" :id="item2.img"></div>
           <div class="flex flex-sc flex-bt br20 card-b">
@@ -67,8 +162,9 @@ export default{
           </div>
         </div>
       </div>
-      <div class="arrow arrow-right pointer"></div>
-
+      <div class="arrow-box arrow-r">
+        <img class="arrow pointer " src="../assets/arrow-r.png" @click="switchPic(index,'r')" v-show="item.cardList && item.cardList.length>3 && item.showIndexs && item.showIndexs.length>3"/>
+      </div>
     </div>
   </div>
 </template>
@@ -107,26 +203,22 @@ export default{
   // padding: 10rem 0 7.5rem 7.5rem;
   padding: 5rem 2.125rem;
   .card-box{
-    // width: 75rem;
+    width: 75rem;
     // height: 27.625rem;
     overflow-x: scroll;
     // overflow-y: hidden;
   }
-  .arrow{
+  .arrow-box,.arrow{
     width: .875rem;
-    height: .875rem;
-    border-top: .25rem solid #07C160;
-    border-left: .25rem solid #07C160;
-
+    height: 1.5rem;
   }
-  .arrow-left{
-    transform: rotate(-45deg);
+  .arrow-l{
     margin-right: 1.625rem;
   }
-  .arrow-right{
-    transform: rotate(135deg);
+  .arrow-r{
     margin-left: 1.625rem;
   }
+  
 }
 
 .go-right{

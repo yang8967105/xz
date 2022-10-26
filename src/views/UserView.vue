@@ -10,33 +10,7 @@ export default{
   },
   data(){
     return {
-      designList:[
-        {
-          id:'Phone',bgccolor:'#0ABF5B',tit:'移动端设计',English:'Phone Design',
-          cardList:[
-            {tit:'企鹅吉市',des:'领券平台小程序',img:'Frame773572.png',publish:true,status:false},
-            {tit:'云管家app',des:'医疗健康小程序',img:'Frame7734221.png',publish:true,status:true},
-            {tit:'药问我健康平台',des:'医疗健康小程序',img:'Frame7734222.png',publish:true,status:false},
-            {tit:'药问我健康平台',des:'医疗健康小程序',img:'Frame7734222.png',publish:true,status:false},
-          ]
-        },
-        {
-          id:'Web',bgccolor:'#3A7BFF',tit:'网页端设计',English:'Web Design',
-          cardList:[
-            {tit:'商有云店',des:'餐饮运营一站式服务',img:'Frame773422-0.png',publish:true,status:true},
-            {tit:'医药流向系统',des:'药品流向查询系统',img:'Frame773422-1.png',publish:false,status:true},
-            {tit:'供应链中台',des:'医药行业进销存管理软件',img:'Frame773422-2.png',publish:true,status:true},
-          ]
-          },
-        {
-          id:'Practice',bgccolor:'#FFA900',tit:'个人练习',English:'Practice',
-          cardList:[
-            {tit:'3D设计',des:'头像、个人形象设计',img:'Frame773422-0.png',publish:false,status:false,myself:true},
-            {tit:'动效设计',des:'MG动画',img:'Frame773422-1.png',publish:false,status:false,myself:true},
-            {tit:'概念设计',des:'数据大屏、营销活动',img:'Frame773422-2.png',publish:false,status:false,myself:true},
-          ]
-          },
-      ]
+      
     }
   }
 }
@@ -68,7 +42,7 @@ export default{
     </div>
   </main>
     <CompanyView  />
-    <DesignInfo :list="designList"/>
+    <DesignInfo />
     <ThanksView id="About"/>
 </template>
 <style scoped>
