@@ -15,6 +15,7 @@ export default{
     },
     cgBackground(obj){
       const url=phonegif+'?'+Math.random()
+      document.getElementsByClassName('card-box')[0].style.height='30.5rem';
       document.getElementById(obj.img).style.background='url('+url+')';
       document.getElementById(obj.img).style.backgroundSize='100%';
     },
@@ -46,23 +47,28 @@ export default{
       <!-- <span class="f48 fw800 color50">/12</span> -->
     </div>
   </div>
-    <div class="bottom flex flex-x flex-sc">
-      <div :key="item2.tit" v-for="(item2,index2) in item.cardList" class="mrr30 flex flex-y card" @mouseover="cgBackground(item2)"  @mouseleave="restore(item2)">
-        <!-- <div class="bottom-img-box br20"><img class="bottom-img" :src="require('@/assets/'+item2.img)" :id="item.id+item2.img"/></div> -->
-        <div class="bottom-img-box br20" :style="setBackground(item2.img)" :id="item2.img"></div>
-        <div class="flex flex-sc flex-bt br20 card-b">
-          <div>
-            <div class="flex flex-x flex-sc">
-              <span class="f20 fw500 color0D1018">{{item2.tit}}</span>
-              <div :class="['mrl10',item2.publish?'bgc07C160':'','flex','flex-sc','flex-mc','w40','h24']"><span class="colorfff f12 fw400">上线</span></div>
-              <div :class="['mrl10',item2.status?'bgcFFA900':'','flex','flex-sc','flex-mc','w40','h24']"><span class="colorfff f12 fw400">改版</span></div>
-              <div :class="['mrl10',item2.status?'bgc3A7BFF':'','flex','flex-sc','flex-mc','w40','h24']"><span class="colorfff f12 fw400">原创</span></div>
+    <div class="bottom flex flex-ar flex-sc">
+      <div class="arrow arrow-left pointer"></div>
+      <div class="flex flex-sc card-box">
+        <div :key="item2.tit" v-for="(item2,index2) in item.cardList" :class="['mrr30','flex', 'flex-y ','card']" @mouseover="cgBackground(item2)"  @mouseleave="restore(item2)">
+          <!-- <div class="bottom-img-box br20"><img class="bottom-img" :src="require('@/assets/'+item2.img)" :id="item.id+item2.img"/></div> -->
+          <div class="bottom-img-box br20" :style="setBackground(item2.img)" :id="item2.img"></div>
+          <div class="flex flex-sc flex-bt br20 card-b">
+            <div>
+              <div class="flex flex-x flex-sc">
+                <span class="f20 fw500 color0D1018">{{item2.tit}}</span>
+                <div :class="['mrl10',item2.publish?'bgc07C160':'','flex','flex-sc','flex-mc','w40','h24']"><span class="colorfff f12 fw400">上线</span></div>
+                <div :class="['mrl10',item2.status?'bgcFFA900':'','flex','flex-sc','flex-mc','w40','h24']"><span class="colorfff f12 fw400">改版</span></div>
+                <div :class="['mrl10',item2.status?'bgc3A7BFF':'','flex','flex-sc','flex-mc','w40','h24']"><span class="colorfff f12 fw400">原创</span></div>
+              </div>
+              <div class="f14 fw400 color909399">{{item2.des}}</div>
             </div>
-            <div class="f14 fw400 color909399">{{item2.des}}</div>
+            <div class="go-right"><img style="width:.8125rem;height:.5rem" src="https://imagesize.hknet-inc.com/sp/files/7d16f98f-e524-4983-8234-7497dffdf349.png"/></div>
           </div>
-          <div class="go-right"><img style="width:.8125rem;height:.5rem" src="https://imagesize.hknet-inc.com/sp/files/7d16f98f-e524-4983-8234-7497dffdf349.png"/></div>
         </div>
       </div>
+      <div class="arrow arrow-right pointer"></div>
+
     </div>
   </div>
 </template>
@@ -99,16 +105,35 @@ export default{
   border-top-right-radius: 3.75rem;
   margin-top: 3.75rem;
   // padding: 10rem 0 7.5rem 7.5rem;
-  padding: 5rem;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  
+  padding: 5rem 2.125rem;
+  .card-box{
+    // width: 75rem;
+    // height: 27.625rem;
+    overflow-x: scroll;
+    // overflow-y: hidden;
+  }
+  .arrow{
+    width: .875rem;
+    height: .875rem;
+    border-top: .25rem solid #07C160;
+    border-left: .25rem solid #07C160;
+
+  }
+  .arrow-left{
+    transform: rotate(-45deg);
+    margin-right: 1.625rem;
+  }
+  .arrow-right{
+    transform: rotate(135deg);
+    margin-left: 1.625rem;
+  }
 }
+
 .go-right{
   visibility: hidden;
 }
 .card:hover{
-  transform: translateY(-2.5rem);
+  transform: translateY(-1.875rem);
   transition: all .2s;
   .bottom-img{
     transform: scale(1.3);
