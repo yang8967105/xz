@@ -1,10 +1,10 @@
 <script>
 import { ElButton,ElIcon } from 'element-plus'
-import CompanyView from './CompanyView.vue';
-import DesignInfo from './DesignInfo.vue';
-import ThanksView from './ThanksView.vue'
+import CompanyView from './Components/CompanyView.vue';
+import DesignList from './Components/DesignList.vue';
+import ThanksView from './Components/ThanksView.vue'
 export default{
-  components: { ElButton,ElIcon,CompanyView,DesignInfo,ThanksView },
+  components: { ElButton,ElIcon,CompanyView,DesignList,ThanksView },
   created(){
     // document.addEventListener('scroll',this.handleScroll,true)
   },
@@ -57,18 +57,18 @@ export default{
           <el-icon color="#07C160" size="10"><BottomRight /></el-icon>
         </div>
         <div class="flex flex-sc">
-          <img src="../assets/Group6.png" class="pointer w58 h58 mrr20"/>
-          <img src="../assets/Group7.png" class="pointer w58 h58 mrr20"/>
-          <img src="../assets/Group8.png" class="pointer w58 h58 mrr20"/>
+          <img :src="require('@/assets/imgs/Group6.png')" class="pointer w58 h58 mrr20"/>
+          <img :src="require('@/assets/imgs/Group7.png')" class="pointer w58 h58 mrr20"/>
+          <img :src="require('@/assets/imgs/Group8.png')" class="pointer w58 h58 mrr20"/>
         </div>
       </div>
       <div>
-        <img src="../assets/untitled11.png" class="pic"/>
+        <img :src="require('@/assets/imgs/untitled11.png')" class="pic"/>
       </div>
     </div>
   </main>
     <CompanyView  />
-    <DesignInfo />
+    <DesignList />
     <ThanksView id="About"/>
 </template>
 <style scoped>
@@ -91,10 +91,10 @@ export default{
 main {
   width: 120rem;
   /* height: 60rem; */
-  /* background-image: url("../assets/Frame1.png"); */
-  /* background:url("../assets/Frame1.png");
+  /* background-image: url("../../assets/imgs/Frame1.png"); */
+  /* background:url("../../assets/imgs/Frame1.png");
   background-size:120rem 60rem; */
-  background:url("../assets/Frame773570.png");
+  background:url("../../assets/imgs/Frame773570.png");
   background-size: 120rem 60rem;
   background-repeat:no-repeat;
   padding-left: 22.5rem;

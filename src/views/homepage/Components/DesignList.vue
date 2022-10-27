@@ -1,6 +1,6 @@
 <script>
-import phonegif from "../assets/phone-qejs.gif"
-import duckgif from "../assets/duck.gif"
+import phonegif from "../../../assets/imgs/phone-qejs.gif"
+import duckgif from "../../../assets/imgs/duck.gif"
 export default{
   created(){
     let designList=[
@@ -35,7 +35,6 @@ export default{
       return {...item,showIndexs:arr}
     })
     this.list=designList
-    console.log(this.list)
   },
   data(){
     return {
@@ -45,7 +44,7 @@ export default{
   methods:{
     setBackground(img){
       return {
-        background:'url('+require('@/assets/'+img)+')',
+        background:'url('+require('@/assets/imgs/'+img)+')',
         backgroundSize:'100%'
       }
     },
@@ -53,26 +52,22 @@ export default{
       document.getElementsByClassName('card-box')[index].style.height='30.5rem';
       let url=''
       if(obj.img=='Frame773572.png'){
-         url=phonegif+'?'+Math.random()
+         url=phonegif+'?'+Math.random
       }else if(obj.img=='Frameduck773422.png'){
          url=duckgif+'?'+Math.random()
       }
-      console.log(url)
       if(url){
-        document.getElementById(obj.img).style.background='url('+url+')';
-        document.getElementById(obj.img).style.backgroundSize='100%';
-      }else{
-
+        document.getElementById(obj.img).src=url;
+        // document.getElementById(obj.img).style.backgroundSize='100%';
       }
 
     },
     restore(obj){
-      document.getElementById(obj.img).style.background='url('+require('@/assets/'+obj.img)+')';
-      document.getElementById(obj.img).style.backgroundSize='100%';
+      document.getElementById(obj.img).src=require('@/assets/imgs/'+obj.img);
+      // document.getElementById(obj.img).style.backgroundSize='100%';
     },
     switchPic(index,bearing){
       const newList=JSON.parse(JSON.stringify(this.list))
-      console.log(newList,'old')
       let endnum=''
       if(bearing=='l'){
 
@@ -85,9 +80,13 @@ export default{
           newList[index].showIndexs.splice(0,1)
         }
       }
-      console.log(newList,'new')
       this.list=newList
-    }
+    },
+    jumpTo(obj,index){
+      obj.childIndex=index
+      this.$store.dispatch('saveDesignAsc',obj)
+      this.$router.push("/designInfo")
+    },
   }
 }
 </script>
@@ -113,7 +112,7 @@ export default{
   </div>
     <div class="bottom flex flex-sc">
       <div class="arrow-box arrow-l">
-        <img class="arrow pointer" src="../assets/arrow-l.png" @click="switchPic(index,'l')" v-show="item.showIndexs && item.showIndexs[0]>0 && item.cardList && item.cardList.length>3"/>
+        <img class="arrow pointer" :src="require('@/assets/imgs/arrow-l.png')" @click="switchPic(index,'l')" v-show="item.showIndexs && item.showIndexs[0]>0 && item.cardList && item.cardList.length>3"/>
       </div>
       <div class="flex flex-sc card-box">
         <div 
@@ -123,9 +122,10 @@ export default{
           @mouseover="cgBackground(item2,index)" 
           @mouseleave="restore(item2)"
           v-show="item && item.showIndexs && item.showIndexs.includes(index2+'')"
+          @click="jumpTo(item,index2)"
         >
-          <!-- <div class="bottom-img-box br20"><img class="bottom-img" :src="require('@/assets/'+item2.img)" :id="item.id+item2.img"/></div> -->
-          <div class="bottom-img-box br20" :style="setBackground(item2.img)" :id="item2.img"></div>
+          <div class="bottom-img-box br20" ><img class="bottom-img" :src="require('@/assets/imgs/'+item2.img)" :id="item2.img"/></div>
+          <!-- <div class="bottom-img-box br20" :style="setBackground(item2.img)" :id="item2.img"></div> -->
           <div class="flex flex-sc flex-bt br20 card-b">
             <div>
               <div class="flex flex-x flex-sc">
@@ -134,14 +134,14 @@ export default{
                 <div v-if="item2.myself" :class="['mrl10','mtd','bgc3A7BFF','flex','flex-sc','flex-mc', 'pdtb3','pdlr6']"><span class="colorfff f12 fw400">{{item2.mtext}}</span></div>
                 <div v-if="item2.status" :class="['mrl10','mtd','bgcFFA900','flex','flex-sc','flex-mc', 'pdtb3','pdlr6']"><span class="colorfff f12 fw400">{{item2.stext}}</span></div>
               </div>
-              <div class="f14 fw400 color909399">{{item2.des}}</div>
+              <div class="f14 fw400 color909399 mtd">{{item2.des}}</div>
             </div>
             <div class="go-right"><img style="width:.8125rem;height:.5rem" src="https://imagesize.hknet-inc.com/sp/files/7d16f98f-e524-4983-8234-7497dffdf349.png"/></div>
           </div>
         </div>
       </div>
       <div class="arrow-box arrow-r">
-        <img class="arrow pointer " src="../assets/arrow-r.png" @click="switchPic(index,'r')" v-show="item.cardList && item.cardList.length>3 && item.showIndexs && item.showIndexs.length>3"/>
+        <img class="arrow pointer " :src="require('@/assets/imgs/arrow-r.png')" @click="switchPic(index,'r')" v-show="item.cardList && item.cardList.length>3 && item.showIndexs && item.showIndexs.length>3"/>
       </div>
     </div>
   </div>
@@ -206,7 +206,7 @@ export default{
   transform: translateY(-1.875rem);
   transition: all .2s;
   .bottom-img{
-    transform: scale(1.3);
+    transform: scale(1.1);
     transition: all .2s;
   }
   .go-right{
