@@ -7,26 +7,26 @@ export default{
       {
         id:'Phone',bgccolor:'#0ABF5B',tit:'移动端设计',English:'Phone Design',
         cardList:[
-          {tit:'企鹅吉市',des:'领券平台小程序',img:'Frame773572.png',publish:true,status:false},
-          {tit:'药问我健康平台',des:'医疗健康小程序',img:'Frame7734222.png',publish:true,status:false},
-          {tit:'云管家app',des:'医疗健康小程序',img:'Frame7734221.png',publish:true,status:true},
+          {tit:'企鹅吉市',des:'高品质外卖消费券平台',img:'Frame773572.png',publish:true,status:false,ptext:'小程序'},
+          {tit:'药问我',des:'健康服务助手',img:'Frame7734222.png',publish:true,status:false,ptext:'小程序'},
+          {tit:'云管家',des:'聚合运力履约平台',img:'Frame7734221.png',publish:true,status:true,ptext:'app',stext:'改版'},
 
         ]
       },
       {
         id:'Web',bgccolor:'#3A7BFF',tit:'网页端设计',English:'Web Design',
         cardList:[
-          {tit:'商有云店',des:'高品质外卖消费券平台',img:'Frame773422-0.png',publish:true,status:true},
-          {tit:'供应链中台',des:'医药行业进销存管理软件',img:'Frame773422-2.png',publish:true,status:true},
-          {tit:'商有官网',des:'网站设计结合动效',img:'Frame1719.png',publish:false,status:true},
+          {tit:'商有云店',des:'餐饮零售化电商运营平台',img:'Frame773422-0.png',publish:true,status:true,ptext:'Web',stext:'改版'},
+          {tit:'供应链中台',des:'医药行业GSP精细化管理软件',img:'Frame773422-2.png',publish:true,status:true,ptext:'Web',stext:'改版'},
+          {tit:'商有官网',des:'网站设计结合动效',img:'Frame1719.png',publish:true,status:false,ptext:'Web'},
         ]
         },
       {
         id:'Practice',bgccolor:'#FFA900',tit:'个人练习',English:'Personal Creation',
         cardList:[
-          {tit:'3D设计',des:'IP形象、场景',img:'Framecai773422.png',publish:false,status:false,myself:true},
-          {tit:'动画设计',des:'MG动画',img:'Frameduck773422.png',publish:false,status:false,myself:true},
-          {tit:'插画设计',des:'插画、图标',img:'Framechahua773422.png',publish:false,status:false,myself:true},
+          {tit:'3D设计',des:'IP形象、场景',img:'Framecai773422.png',publish:false,status:false,myself:true,mtext:'原创'},
+          {tit:'动画设计',des:'MG动画',img:'Frameduck773422.png',publish:false,status:true,myself:true,mtext:'原创',stext:'练习'},
+          {tit:'插画设计',des:'插画、图标',img:'Framechahua773422.png',publish:false,status:false,myself:true,mtext:'原创'},
         ]
       },
     ]
@@ -130,9 +130,9 @@ export default{
             <div>
               <div class="flex flex-x flex-sc">
                 <span class="f20 fw500 color0D1018">{{item2.tit}}</span>
-                <div :class="['mrl10',item2.publish?'bgc07C160':'','flex','flex-sc','flex-mc','w40','h24']"><span class="colorfff f12 fw400">上线</span></div>
-                <div :class="['mrl10',item2.status?'bgcFFA900':'','flex','flex-sc','flex-mc','w40','h24']"><span class="colorfff f12 fw400">改版</span></div>
-                <div :class="['mrl10',item2.status?'bgc3A7BFF':'','flex','flex-sc','flex-mc','w40','h24']"><span class="colorfff f12 fw400">原创</span></div>
+                <div v-if="item2.publish" :class="['mrl10','mtd','bgc07C160','flex','flex-sc','flex-mc', 'pdtb3','pdlr6']"><span class="colorfff f12 fw400">{{item2.ptext}}</span></div>
+                <div v-if="item2.myself" :class="['mrl10','mtd','bgc3A7BFF','flex','flex-sc','flex-mc', 'pdtb3','pdlr6']"><span class="colorfff f12 fw400">{{item2.mtext}}</span></div>
+                <div v-if="item2.status" :class="['mrl10','mtd','bgcFFA900','flex','flex-sc','flex-mc', 'pdtb3','pdlr6']"><span class="colorfff f12 fw400">{{item2.stext}}</span></div>
               </div>
               <div class="f14 fw400 color909399">{{item2.des}}</div>
             </div>

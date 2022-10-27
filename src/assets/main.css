@@ -179,3 +179,11 @@
 .f32{
   font-size: 2rem;
 }
+.pdtb3{
+  padding-top: .1875rem;
+  padding-bottom: .1875rem;
+}
+.pdlr6{
+  padding-left: .375rem;
+  padding-right: .375rem;
+}
