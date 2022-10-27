@@ -5,18 +5,44 @@ import DesignInfo from './DesignInfo.vue';
 import ThanksView from './ThanksView.vue'
 export default{
   components: { ElButton,ElIcon,CompanyView,DesignInfo,ThanksView },
-  setup(){
-
+  created(){
+    // document.addEventListener('scroll',this.handleScroll,true)
   },
   data(){
     return {
-      
+      headerList:['Home','Phone','Web','Practice','About'],
+      showHeader:true,
+
+    }
+  },
+  methods:{
+    handleScroll(){
+      let that=this
+      that.showHeader=false
+      let scrollH=document.documentElement.scrollTop
+      let timer=null
+      clearTimeout(timer)
+      timer=setTimeout(()=>{
+        if(document.documentElement.scrollTop==scrollH){
+          // that.showHeader=true
+        }
+      },1000)
+      console.log(this.showHeader)
     }
   }
 }
 </script>
 
 <template>
+<header class="flex bgc0D1018 h72 hd" v-show="showHeader">
+      <div class="flex-1 flex flex-bt flex-sc pdlr360">
+        <div class="f24 color07C160 fw800"><span>Designer</span><span class="colorfff f20">ZHOU</span></div>
+        <div class="flex flex-sc">
+          <div v-for="(item,index) in headerList" :key="index" class="mrr40 pointer hg colorfff mtd" @click="()=>jump(item)"><span class="fw600 f16">{{item}}</span></div>
+          <el-button round color="#0D1018" style="border:1px solid #fff;font-size:1rem;font-weight:500;">Let's Chat</el-button>
+        </div>
+      </div>
+  </header>
   <main>
     <div class="flex flex-sc flex-bt" id="Home">
       <div>
@@ -46,6 +72,22 @@ export default{
     <ThanksView id="About"/>
 </template>
 <style scoped>
+ header {
+    /* line-height: 1.5; */
+    /* position: sticky;
+    top: 0;
+    z-index: 2; */
+    width: 100%;
+  }
+  .pdlr360{
+    padding:0 22.5rem;
+  }
+  .border-b{
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+  }
+  .hg:hover{
+    color: #07C160;
+  }
 main {
   width: 120rem;
   /* height: 60rem; */

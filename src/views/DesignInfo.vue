@@ -1,34 +1,32 @@
 <script>
 import phonegif from "../assets/phone-qejs.gif"
+import duckgif from "../assets/duck.gif"
 export default{
   created(){
     let designList=[
       {
-        id:'Phone',bgccolor:'#0ABF5B',tit:'移动端设计',English:'Phone Design',arrowStart:0,
+        id:'Phone',bgccolor:'#0ABF5B',tit:'移动端设计',English:'Phone Design',
         cardList:[
           {tit:'企鹅吉市',des:'领券平台小程序',img:'Frame773572.png',publish:true,status:false},
-          {tit:'云管家app',des:'医疗健康小程序',img:'Frame7734221.png',publish:true,status:true},
           {tit:'药问我健康平台',des:'医疗健康小程序',img:'Frame7734222.png',publish:true,status:false},
           {tit:'云管家app',des:'医疗健康小程序',img:'Frame7734221.png',publish:true,status:true},
-          {tit:'药问我健康平台',des:'医疗健康小程序',img:'Frame7734222.png',publish:true,status:false},
 
         ]
       },
       {
-        id:'Web',bgccolor:'#3A7BFF',tit:'网页端设计',English:'Web Design',arrowStart:0,
+        id:'Web',bgccolor:'#3A7BFF',tit:'网页端设计',English:'Web Design',
         cardList:[
-          {tit:'商有云店',des:'餐饮运营一站式服务',img:'Frame773422-0.png',publish:true,status:true},
-          {tit:'医药流向系统',des:'药品流向查询系统',img:'Frame773422-1.png',publish:false,status:true},
+          {tit:'商有云店',des:'高品质外卖消费券平台',img:'Frame773422-0.png',publish:true,status:true},
           {tit:'供应链中台',des:'医药行业进销存管理软件',img:'Frame773422-2.png',publish:true,status:true},
-          {tit:'供应链中台',des:'医药行业进销存管理软件',img:'Frame773422-2.png',publish:true,status:true},
+          {tit:'商有官网',des:'网站设计结合动效',img:'Frame1719.png',publish:false,status:true},
         ]
         },
       {
-        id:'Practice',bgccolor:'#FFA900',tit:'个人练习',English:'Practice',arrowStart:0,
+        id:'Practice',bgccolor:'#FFA900',tit:'个人练习',English:'Personal Creation',
         cardList:[
-          {tit:'3D设计',des:'头像、个人形象设计',img:'Frame773422-0.png',publish:false,status:false,myself:true},
-          {tit:'动效设计',des:'MG动画',img:'Frame773422-1.png',publish:false,status:false,myself:true},
-          {tit:'概念设计',des:'数据大屏、营销活动',img:'Frame773422-2.png',publish:false,status:false,myself:true},
+          {tit:'3D设计',des:'IP形象、场景',img:'Framecai773422.png',publish:false,status:false,myself:true},
+          {tit:'动画设计',des:'MG动画',img:'Frameduck773422.png',publish:false,status:false,myself:true},
+          {tit:'插画设计',des:'插画、图标',img:'Framechahua773422.png',publish:false,status:false,myself:true},
         ]
       },
     ]
@@ -51,58 +49,38 @@ export default{
         backgroundSize:'100%'
       }
     },
-    cgBackground(obj){
-      const url=phonegif+'?'+Math.random()
-      document.getElementsByClassName('card-box')[0].style.height='30.5rem';
-      document.getElementById(obj.img).style.background='url('+url+')';
-      document.getElementById(obj.img).style.backgroundSize='100%';
+    cgBackground(obj,index){
+      document.getElementsByClassName('card-box')[index].style.height='30.5rem';
+      let url=''
+      if(obj.img=='Frame773572.png'){
+         url=phonegif+'?'+Math.random()
+      }else if(obj.img=='Frameduck773422.png'){
+         url=duckgif+'?'+Math.random()
+      }
+      console.log(url)
+      if(url){
+        document.getElementById(obj.img).style.background='url('+url+')';
+        document.getElementById(obj.img).style.backgroundSize='100%';
+      }else{
+
+      }
+
     },
     restore(obj){
       document.getElementById(obj.img).style.background='url('+require('@/assets/'+obj.img)+')';
       document.getElementById(obj.img).style.backgroundSize='100%';
     },
     switchPic(index,bearing){
-      // let id=this.list[index].id;
-      // let arrowStart=this.list[index].arrowStart
-      // let display=''
-      // let num=0;
-      // if(bearing=='l'){
-      //   display='none'
-      //   num=1
-      // }else{
-      //   display='block'
-      //   num=-1
-      // }
-      // console.log(arrowStart,'new')
-
-      // document.getElementById(id).children[1].children[1].children[arrowStart].style.display=display;
-      // document.getElementById(id).children[1].children[1].children[arrowStart].style.transition="all .2s";
-      // const newList=JSON.parse(JSON.stringify(this.list))
-      // newList[index].arrowStart+=num;
-      // console.log(newList[index].arrowStart,'new')
-      // this.list=newList;
       const newList=JSON.parse(JSON.stringify(this.list))
       console.log(newList,'old')
       let endnum=''
       if(bearing=='l'){
-        // if(newList[index].showIndexs.length>3){
-        //   newList[index].showIndexs.splice(0,1)
-        // }
+
         if(newList[index].showIndexs.length<newList[index].cardList.length){
           endnum=newList[index].showIndexs[0]
           newList[index].showIndexs.unshift(endnum-1+'')
         }
       }else{
-        endnum=newList[index].showIndexs[0]
-        console.log(endnum,'endum')
-        // if(endnum==0){
-        //     newList[index].showIndexs.splice(0,1)
-        // }else{
-        //   if(endnum-1>=0){
-        //     newList[index].showIndexs.unshift(endnum-1+'')
-        //   }
-          
-        // }
          if(newList[index].showIndexs.length>=4){
           newList[index].showIndexs.splice(0,1)
         }
@@ -142,7 +120,7 @@ export default{
           :key="item2.tit" 
           v-for="(item2,index2) in item.cardList" 
           :class="['mrr30','flex', 'flex-y ','card']" 
-          @mouseover="cgBackground(item2)" 
+          @mouseover="cgBackground(item2,index)" 
           @mouseleave="restore(item2)"
           v-show="item && item.showIndexs && item.showIndexs.includes(index2+'')"
         >
